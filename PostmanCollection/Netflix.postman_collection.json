@@ -1,0 +1,438 @@
+{
+	"info": {
+		"_postman_id": "a2ce3a0e-96ad-470f-a012-b85c3436a128",
+		"name": "Netflix",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25401710"
+	},
+	"item": [
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "admin_registration",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"naren.m@gmail.com\",\n    \"password\": \"test123\",\n    \"name\": \"Naren Mohan\",\n    \"mobileNumber\": \"1234567890\",\n    \"age\": 26,\n    \"gender\": \"male\",\n    \"primaryAddress\": \"20, 21B Cross, Maruthi Sevanagar, Bangalore-560012\",\n    \"registrationToken\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/v1/auth/admin/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"auth",
+								"admin",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_all_users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiJuYXJlbi5tQGdtYWlsLmNvbSIsImlhdCI6MTY4MjUxNzY3MywiZXhwIjoxNjgyNjA0MDczfQ.ZpduQ-nyhRMaNo4NTmc2p_EBVTmxecxjhMESS3CpBF5K1MeP1vs8GhoWofru7wmwpQJmwKgL5ErX1CeUPuNj5ENwKXBCT0fXTtL6mIbcdrr2EkvMFjPlNdBg4wBS3uwup0zijTRu6Ecj8TXHO_nHaTAKGoOCUGzLS6nFRy_arKhYFNI3JpTlhgAJaBvEKudHtuVxAsLGGKQIcAqZemg7TlM_ikeYyUt5tsWR4GkyqO_JqB07dge1ch0wJgA1LS2tyNVt5UjtjvMTonIYp6EmQFzDG4lr6DBHRGtmAMKYaLGH0mbTCzrM39r95cHWCkfSNvpJHOHIe1_wsgtczLTgv9FOmZOdHyNOE4SuZCUynfdOcyEfSEg3UbbW91Cy9uikqnEQFsuDctcLeAGKWbJRShIotcbmFuhH4SXw6f5Pu2ATFqWLjD0yjaDFKWfvy4g3ZGGhIIQfI0dayQi1YCZK_NmNKC64WAltF0k5TDL2XzYsfzyFT65TftVS9YlezbeE5fQjoMZQZHU7LQV1sp8Y501pUpVWOj7l-1cla1jyk-TUj8ghYgBDecCadCFRef8G4ePRpxg9A2PZqNBi73TTSjDm5ObZX1z4akoojECgMcMUHLKOaOTDZg9pwuDbHiSRAiFLF_JqNQ4n7Ij5TmCGtFv-uSCiaeQx3k8npBNCDHM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/v1/admin/get_all_users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"admin",
+								"get_all_users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/v1/admin/delete_user?email=gautham.apa@gmail.com",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"admin",
+								"delete_user"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "gautham.apa@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "registration",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"gautham@gmail.com\",\n    \"password\": \"test123\",\n    \"name\": \"Hariharan\",\n    \"mobileNumber\": \"1234567890\",\n    \"age\": 26,\n    \"gender\": \"male\",\n    \"primaryAddress\": \"20, 21A Cross, Malleshwaram, Bangalore-560005\",\n    \"alternateAddress\": \"65 Melrose Street, Boston-02120\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/v1/auth/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"gautham@gmail.com\",\n    \"password\": \"test123\"\n}\n\n// {\n//     \"email\": \"naren.m@gmail.com\",\n//     \"password\": \"test123\"\n// }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/v1/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "movie",
+			"item": [
+				{
+					"name": "get_asset",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/v1/get_asset?asset_id=sivaji_the_boss",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"get_asset"
+							],
+							"query": [
+								{
+									"key": "asset_id",
+									"value": "sivaji_the_boss"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_movies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/v1/get_content?page=0&genre=sci-fi&year=2022",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"get_content"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0",
+									"description": "Current page number"
+								},
+								{
+									"key": "genre",
+									"value": "sci-fi",
+									"description": "Movie genre"
+								},
+								{
+									"key": "year",
+									"value": "2022",
+									"description": "Release year"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search_movies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/v1/search?page=0&search_term=the",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"search"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "search_term",
+									"value": "the"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "watch_movie",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Range",
+								"value": "0-10000",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/v1/watch/sivaji_the_boss",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"watch",
+								"sivaji_the_boss"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "comments",
+			"item": [
+				{
+					"name": "get_comments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/v1/get_comments?page=0&video_id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"get_comments"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "video_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add_comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"videoId\": 1,\n    \"text\": \"What a movie!\"\n}\n\n// {\n//     \"videoId\": 1,\n//     \"text\": \"Amazing acting! Mind blown.\"\n// }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/v1/add_comment",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"add_comment"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
